@@ -15,5 +15,6 @@ void setup() {
   backgroundImageHeight = appHeight-1;
 }
 void draw() {
+  tint(255, 0, 0);
   image(img, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
 }
