@@ -12,7 +12,7 @@ void setup() {
   appHeight = height;
   //
   //Note: Dimensions are found in the image file / Right Click / Properties / Details
-  
+
   //Aspect Ratio of Background Image
   if (imgWidth >= imgHeight) { //True if Landscape or Square
     largerDimension = imgWidth;
@@ -36,8 +36,13 @@ void setup() {
   if (appWidth >= imgWidth) {
     imgWidthAdjusted = appWidth;
     //
-    if(widthLarger == true) imageWidthRatio = largerDimension / largerDimension;
-    if(widthLarger == true) imageHeightRatio = smallerDimension / largerDimension;
+    if (widthLarger == true) imageWidthRatio = largerDimension / largerDimension;
+    if (widthLarger == false) imageWidthRatio = smallerDimension / largerDimension;
+    //
+    if () {
+    } else {
+    }
+    //Image smaller than CANVAS. needs separate algorithm
   } else {
   }
   //Population
