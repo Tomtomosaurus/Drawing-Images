@@ -33,7 +33,7 @@ void setup() {
   //
   //Better Smage Stretch Algorithm
   //We know the idth id tha larger dimension
-  if (appWidth >= imgWidth) {
+  if (appWidth >= imgWidth) { //Stretching larger dimension
     imgWidthAdjusted = appWidth;
     //
     if (widthLarger == true) imageWidthRatio = largerDimension / largerDimension;
