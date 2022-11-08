@@ -1,20 +1,59 @@
 //GLOBAL VARIABLES
-int appWidth, appHeight;
-float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
+int appWidth, appHeight, imgWidth = 800, imgHeight = 626;
+float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight, smallerDimension, largerDimension, imageWidthRatio, imageHeightRatio, imgWidthAdjusted, imgHeightAdjusted;
 PImage img;
+Boolean nightMode=false, widthLarger=false;
 //
 void setup() {
   size (800, 626); //Landscape
-  //Copy Display Algorithm
+  //Copy Display Algorithm from Hello World
   img = loadImage("../Used Images/Kool_Kat.jpeg");
   appWidth = width;
   appHeight = height;
+  //
+  //Note: Dimensions are found in the image file / Right Click / Properties / Details
+  
+  //Aspect Ratio of Background Image
+  if (imgWidth >= imgHeight) { //True if Landscape or Square
+    largerDimension = imgWidth;
+    smallerDimension = imgHeight;
+    widthLarger = true;
+  } else { //False if Portrait
+    largerDimension = imgHeight;
+    smallerDimension = imgWidth;
+    widthLarger = false;
+  }
+  //
+  /*Aspect Ratio Calculations (older)
+   if(widthLarger == true) imageWidthRatio = largerDimension / largerDimension;
+   if(widthLarger == true) imageHeightRatio = smallerDimension / largerDimension;
+   if(widthLarger == false) imageWidthRatio = smallerDimension / largerDimension;
+   if(widthLarger == false) imageHeightRatio = largerDimension / largerDimension;
+   */
+  //
+  //Better Smage Stretch Algorithm
+  //We know the idth id tha larger dimension
+  if (appWidth >= imgWidth) {
+    imgWidthAdjusted = appWidth;
+    //
+    if(widthLarger == true) imageWidthRatio = largerDimension / largerDimension;
+    if(widthLarger == true) imageHeightRatio = smallerDimension / largerDimension;
+  } else {
+  }
+  //Population
+  //Aspect Ratio Calculations
   backgroundImageX = 1;
   backgroundImageY = 1;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
+  //
+  //Adjust Image Variables for Aspect Ratio
+  imgWidthAdjusted = backgroundImageWidth * imageWidthRatio;
+  imgHeightAdjusted = backgroundImageHeight * imageHeightRatio;
+  println (appWidth, imgWidth, imgWidthAdjusted);
+  println (appHeight, imgHeight, imgHeightAdjusted);
 }
 void draw() {
-  tint(255, 0, 0);
-  image(img, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
+  tint(0, 255, 255);
+  image(img, backgroundImageX, backgroundImageY, imgWidthAdjusted, imgHeightAdjusted);
 }
