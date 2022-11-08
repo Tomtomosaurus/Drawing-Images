@@ -1,6 +1,6 @@
 //GLOBAL VARIABLES
 int appWidth, appHeight, imgWidth = 800, imgHeight = 626;
-float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight, smallerDimension, largerDimension, imageWidthRatio, imageHeightRatio, imgWidthAdjusted, imgHeightAdjusted;
+float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight, smallerDimension, largerDimension, imageWidthRatio, imageHeightRatio, imgWidthAdjusted=0.0, imgHeightAdjusted=0.0;
 PImage img;
 Boolean nightMode=false, widthLarger=false;
 //
@@ -39,10 +39,15 @@ void setup() {
     if (widthLarger == true) imageWidthRatio = largerDimension / largerDimension;
     if (widthLarger == false) imageWidthRatio = smallerDimension / largerDimension;
     //
-    if () {
+    if (appHeight >= imgHeight) {
+      //Calculated Dimension because smaller than width
+      if (widthLarger == true) imageHeightRatio = smallerDimension / largerDimension;
+      if (widthLarger == false) imageHeightRatio = largerDimension / largerDimension;
+      imgHeightAdjusted = imgWidthAdjusted * imageHeightRatio;
     } else {
+      //Image smaller than CANVAS needs separate algorithm
     }
-    //Image smaller than CANVAS. needs separate algorithm
+    //Image smaller than CANVAS needs separate algorithm
   } else {
   }
   //Population
@@ -52,9 +57,6 @@ void setup() {
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
   //
-  //Adjust Image Variables for Aspect Ratio
-  imgWidthAdjusted = backgroundImageWidth * imageWidthRatio;
-  imgHeightAdjusted = backgroundImageHeight * imageHeightRatio;
   println (appWidth, imgWidth, imgWidthAdjusted);
   println (appHeight, imgHeight, imgHeightAdjusted);
 }
