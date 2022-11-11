@@ -37,18 +37,22 @@ void setup() {
     imgWidthAdjusted = appWidth;
     //
     if (widthLarger == true) imageWidthRatio = largerDimension / largerDimension;
-    if (widthLarger == false) imageWidthRatio = smallerDimension / largerDimension;
     //
     if (appHeight >= imgHeight) {
       //Calculated Dimension because smaller than width
       if (widthLarger == true) imageHeightRatio = smallerDimension / largerDimension;
-      if (widthLarger == false) imageHeightRatio = largerDimension / largerDimension;
       imgHeightAdjusted = imgWidthAdjusted * imageHeightRatio;
     } else {
       //Image smaller than CANVAS needs separate algorithm
     }
     //Image smaller than CANVAS needs separate algorithm
   } else {
+    if (widthLarger == false) imageWidthRatio = smallerDimension / largerDimension;
+    //
+    if (appHeight <= imgHeight) {
+      //Calculated Dimension because smaller than width
+      if (widthLarger == false) imageHeightRatio = largerDimension / largerDimension;
+    }
   }
   //Population
   //Aspect Ratio Calculations
