@@ -25,8 +25,8 @@ void setup()
   //Kool_Kat.jpg
   //Note: Dimensions are found in the image file / Right Click / Properties / Details
   //Note: meta explored in MP#'s or music files
-  int picWidth = 800; //Kool image
-  int picHeight = 626;
+  int picWidth1 = 800; //Kool image
+  int picHeight1 = 626;
   int picWidth2 = 800;//Kool image 2
   int picHeight2 = 626;
   int picWidth3 = 1080; //Phone Background image
@@ -38,6 +38,41 @@ void setup()
   float smallerDimension3, largerDimension3, imageWidthRatio3=0.0, imageHeightRatio3=0.0;
   Boolean widthLarger=false, heightLarger=false, widthLarger2=false, heightLarger2=false;
   Boolean widthLarger3=false, heightLarger3=false;
+if ( picWidth1 >= picHeight1 ) { //True if Landscape or Square
+    largerDimension1 = picWidth1;
+    smallerDimension1 = picHeight1;
+    //
+    //Landscape Image larger image to smaller rectangle (or larger)
+    picWidthAdjusted1 = backgroundImageWidth; //stretch or reduce
+    imageHeightRatio1 = smallerDimension1 / largerDimension1;
+    picHeightAdjusted1 = picWidthAdjusted1 * imageHeightRatio1;
+    if ( picHeightAdjusted1 > backgroundImageHeight ) { //Error Catch
+      println("STOP: image is too big for rectangle layout");
+      exit(); //stop further use of the APP
+    }
+  } else { //False if Portrait
+    largerDimension1 = picHeight1;
+    smallerDimension1 = picWidth1;
+    //Portrait Image larger image to smaller rectangle (or larger)
+    //Students to create
+    picHeightAdjusted2 = topHeight; //stretch or reduce
+    imageWidthRatio2 = smallerDimension2 / largerDimension2;
+    picWidthAdjusted2 = picHeightAdjusted2 * imageWidthRatio2;
+    println("here", picWidthAdjusted2, picHeightAdjusted2);
+    if ( picWidthAdjusted2 > topWidth ) {
+      println("STOP: image is too big for rectangle layout");
+      exit(); //stop further use of the APP
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
   if ( picWidth >= picHeight ) { //True if Landscape or Square
     largerDimension = picWidth;
     smallerDimension = picHeight;
