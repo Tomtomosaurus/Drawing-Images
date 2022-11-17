@@ -105,11 +105,11 @@ void setup()
     smallerDimension1 = picHeight1;
     //
     //Landscape Image larger image to smaller rectangle (or larger)
-    picWidthAdjusted2 = backgroundImageWidth; //stretch or reduce
+    picWidthAdjusted2 = bottomWidth; //stretch or reduce
     imageHeightRatio2 = smallerDimension2 / largerDimension2;
     picHeightAdjusted2 = picWidthAdjusted2 * imageHeightRatio2;
     //
-    if ( picHeightAdjusted2 > backgroundImageHeight ) { //Error Catch
+    if ( picHeightAdjusted2 > bottomHeight ) { //Error Catch
       println("STOP: image is too big for rectangle layout");
       exit(); //stop further use of the APP
     }
