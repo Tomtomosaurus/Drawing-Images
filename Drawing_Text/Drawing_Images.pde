@@ -83,33 +83,7 @@ void setup()
     imageHeightRatio2 = smallerDimension2 / largerDimension2;
     picHeightAdjusted2 = picWidthAdjusted2 * imageHeightRatio2;
     //
-    if ( picHeightAdjusted2 > backgroundImageHeight ) { //Error Catch
-      println("STOP: image is too big for rectangle layout");
-      exit(); //stop further use of the APP
-    }
-  } else { //False if Portrait
-    largerDimension1 = picHeight1;
-    smallerDimension1 = picWidth1;
-    //
-    //Students to create
-    picHeightAdjusted1 = topHeight; //stretch or reduce
-    imageWidthRatio2 = smallerDimension2 / largerDimension2;
-    picWidthAdjusted2 = picHeightAdjusted2 * imageWidthRatio2;
-    if ( picWidthAdjusted2 > topWidth ) {
-      println("STOP: image is too big for rectangle layout");
-      exit(); //stop further use of the APP
-    }
-  }
-  if ( picWidth1 >= picHeight1 ) { //True if Landscape or Square
-    largerDimension1 = picWidth1;
-    smallerDimension1 = picHeight1;
-    //
-    //Landscape Image larger image to smaller rectangle (or larger)
-    picWidthAdjusted2 = bottomWidth; //stretch or reduce
-    imageHeightRatio2 = smallerDimension2 / largerDimension2;
-    picHeightAdjusted2 = picWidthAdjusted2 * imageHeightRatio2;
-    //
-    if ( picHeightAdjusted2 > bottomHeight ) { //Error Catch
+    if ( picHeightAdjusted2 > topHeight ) { //Error Catch
       println("STOP: image is too big for rectangle layout");
       exit(); //stop further use of the APP
     }
@@ -118,91 +92,37 @@ void setup()
     smallerDimension2 = picWidth2;
     //
     //Students to create
-    picHeightAdjusted2 = topWidth; //stretch or reduce
-    imageHeightRatio2 = smallerDimension2 / largerDimension2;
+    picHeightAdjusted2 = topHeight; //stretch or reduce
+    imageWidthRatio2 = smallerDimension2 / largerDimension2;
     picWidthAdjusted2 = picHeightAdjusted2 * imageWidthRatio2;
-    if ( picWidthAdjusted2 > topHeight ) {
+    if ( picWidthAdjusted2 > topWidth ) {
       println("STOP: image is too big for rectangle layout");
       exit(); //stop further use of the APP
     }
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  if ( picWidth >= picHeight ) { //True if Landscape or Square
-    largerDimension = picWidth;
-    smallerDimension = picHeight;
-    widthLarger = true;
-  } else { //False if Portrait
-    largerDimension = picHeight;
-    smallerDimension = picWidth;
-    heightLarger = true;
-  }
-  //
-  //Teaching Example: width is known to be larger
-  //Better Image Stretch Algorithm
-  if ( appWidth >= picWidth ) {
-    picWidthAdjusted = appWidth; //Stretching larger dimension
-    //
-    if ( widthLarger == true ) imageWidthRatio = largerDimension / largerDimension;
-    //
-    if ( appHeight >= picHeight ) {
-      //Calculated Dimension b/c smaller than width
-      if ( widthLarger == true ) imageHeightRatio = smallerDimension / largerDimension;
-      picHeightAdjusted = picWidthAdjusted * imageHeightRatio;
-      if ( appHeight < picHeightAdjusted ) {
-        println("STOP: image is too big for CANVAS");
-        exit(); //stop further use of the APP
-      }
-    } else {
-      //Image smaller than CANVAS needs separate algorithm
-      println("CANVAS is smaller than Image");
-    }
-  } else {
-    //Image smaller than CANVAS, needs separate algorithm
-    println("CANVAS is smaller than Image");
-  }
-  //
-  
-  //Verify Variable Values after Algorithm
-  println("App Width:", appWidth, " and App Height:", appHeight);
-  println("Image dimensions are:", picWidth, picHeight);
-  println("Larger Image dimension is:", largerDimension);
-  println("Adjusted Image dimesnions are (stretch is goal):", picWidthAdjusted, picHeightAdjusted);
-  //
-  
-  //Algorithm uses rect-variables
-  
   if ( picWidth3 >= picHeight3 ) { //True if Landscape or Square
     largerDimension3 = picWidth3;
     smallerDimension3 = picHeight3;
-    widthLarger3 = true;
+    //
     //Landscape Image larger image to smaller rectangle (or larger)
     picWidthAdjusted3 = bottomWidth; //stretch or reduce
     imageHeightRatio3 = smallerDimension3 / largerDimension3;
     picHeightAdjusted3 = picWidthAdjusted3 * imageHeightRatio3;
-    println("here", picWidthAdjusted3, picHeightAdjusted3);
-    if ( picHeightAdjusted3 > bottomHeight ) {
-      println("STOP: image height is too big for rectangle layout");
+    //
+    if ( picHeightAdjusted3 > bottomHeight ) { //Error Catch
+      println("STOP: image is too big for rectangle layout");
       exit(); //stop further use of the APP
     }
   } else { //False if Portrait
     largerDimension3 = picHeight3;
     smallerDimension3 = picWidth3;
-    heightLarger3 = true;
-    //Portrait Image larger image to smaller rectangle (or larger)
+    //
     //Students to create
     picHeightAdjusted3 = bottomHeight; //stretch or reduce
     imageWidthRatio3 = smallerDimension3 / largerDimension3;
     picWidthAdjusted3 = picHeightAdjusted3 * imageWidthRatio3;
-    println("here", picWidthAdjusted3, picHeightAdjusted3);
     if ( picWidthAdjusted3 > bottomWidth ) {
-      println("STOP: image width is too big for rectangle layout");
+      println("STOP: image is too big for rectangle layout");
       exit(); //stop further use of the APP
     }
   }
